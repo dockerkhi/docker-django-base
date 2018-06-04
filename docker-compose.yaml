@@ -8,3 +8,13 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    depends_on:
+      - postgres
+
+  postgres:
+      image: postgres:10.4
+      ports:
+        - "5432:5432"
+      environment:
+        - POSTGRES_PASSWORD=123456
+        - POSTGRES_DB=mydb
